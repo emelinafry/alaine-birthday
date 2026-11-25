@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Happy Birthday, Alaine</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <!-- where the 3D code comes from, for the fly-through -->
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js",
+        "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"
+      }
+    }
+  </script>
+</head>
+<body>
+  <header class="intro">
+    <h1>Happy Birthday, Alaine</h1>
+    <p>A trip through everything we've done together</p>
+    <p class="hint">scroll ↓</p>
+  </header>
+
+  <main id="chapters"></main>
+
+  <footer class="finale">
+    <h2>…and we're still going.</h2>
+    <p>Happy birthday, best friend.</p>
+  </footer>
+
+  <!-- The two girls stay pinned to the bottom of the screen and grow as you scroll -->
+  <div class="stage" aria-hidden="true">
+    <!-- Landmarks: each one shows when a chapter with that "scene" is on screen -->
+    <svg class="scene scene-dc" viewBox="0 0 400 130" preserveAspectRatio="xMidYMax meet">
+      <!-- Capitol -->
+      <rect x="40" y="100" width="150" height="30"/>
+      <rect x="85" y="78" width="60" height="24"/>
+      <path d="M88 80 a27 30 0 0 1 54 0 z"/>
+      <rect x="111" y="40" width="8" height="12"/>
+      <circle cx="115" cy="38" r="3"/>
+      <!-- Washington Monument -->
+      <path d="M296 130 l4 -112 l5 -10 l5 10 l4 112 z"/>
+    </svg>
+    <div class="ground"></div>
+    <div class="girls">
+      <svg class="girl girl-a" viewBox="0 0 60 120"></svg>
+      <svg class="girl girl-b" viewBox="0 0 60 120"></svg>
+    </div>
+  </div>
+
+  <svg width="0" height="0" style="position:absolute">
+    <defs>
+      <g id="girl">
+        <g class="leg leg-l"><rect x="22" y="80" width="6" height="30" rx="3" fill="var(--skin)"/><rect x="20" y="106" width="10" height="6" rx="3" fill="var(--shoe)"/></g>
+        <g class="leg leg-r"><rect x="32" y="80" width="6" height="30" rx="3" fill="var(--skin)"/><rect x="30" y="106" width="10" height="6" rx="3" fill="var(--shoe)"/></g>
+        <rect class="arm arm-l" x="10" y="50" width="6" height="26" rx="3" fill="var(--skin)"/>
+        <rect class="arm arm-r" x="44" y="50" width="6" height="26" rx="3" fill="var(--skin)"/>
+        <path d="M18 46 h24 l8 40 h-40 z" fill="var(--dress)"/>
+        <path d="M14 30 a16 16 0 0 1 32 0 v18 h-32 z" fill="var(--hair)"/>
+        <circle cx="30" cy="28" r="13" fill="var(--skin)"/>
+        <path d="M17 26 a13 13 0 0 1 26 0 a18 10 0 0 0 -26 0 z" fill="var(--hair)"/>
+        <circle cx="25" cy="29" r="1.6" fill="#333"/>
+        <circle cx="35" cy="29" r="1.6" fill="#333"/>
+        <path d="M26 34 q4 3 8 0" stroke="#333" stroke-width="1.4" fill="none" stroke-linecap="round"/>
+        <g class="beret"><ellipse cx="27" cy="15" rx="17" ry="6" fill="var(--beret)"/><rect x="26" y="6" width="3" height="5" rx="1.5" fill="var(--beret)"/></g>
+      </g>
+    </defs>
+  </svg>
+
+  <!-- Full-screen 3D fly-through, opened from a chapter's "fly" button -->
+  <div id="fly" class="fly" hidden>
+    <canvas></canvas>
+    <div class="fly-labels"></div>
+    <div class="fly-label"><p class="fly-place"></p><p class="fly-blurb"></p></div>
+    <div class="fly-bottom">
+      <p class="fly-hint">Drag to look around · pinch or scroll to zoom</p>
+      <button class="fly-close" type="button">Back to the story</button>
+    </div>
+    <a class="fly-credit" href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">© OpenStreetMap contributors</a>
+  </div>
+
+  <script src="trips.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>

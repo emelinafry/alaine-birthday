@@ -1,0 +1,15 @@
+[out:json][timeout:240][bbox:38.8770,-77.0580,38.9010,-77.0030];
+(
+  way["building"];
+  relation["building"];
+  way["building:part"];
+  relation["building:part"];
+  way["natural"="water"]; relation["natural"="water"];
+  way["waterway"="riverbank"]; relation["waterway"="riverbank"];
+  way["leisure"~"^(park|garden|pitch|golf_course)$"]; relation["leisure"~"^(park|garden)$"];
+  way["landuse"~"^(grass|recreation_ground|forest)$"];
+  way["natural"~"^(wood|scrub|grassland)$"];
+  way["highway"~"^(motorway|trunk|primary|secondary|tertiary|residential|unclassified|service|pedestrian|footway|path|living_street|motorway_link|trunk_link|primary_link|secondary_link)$"];
+  way["man_made"="obelisk"];
+);
+out geom;
